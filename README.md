@@ -71,6 +71,7 @@
 
    ![image](https://github.com/Artem-bobunov/testApptrix/assets/38436717/e5fcd64a-af16-4c70-b386-0e73f902effb)
 
+  Поиск в пределах заданной дистанции не реализован до конца. Но мои старания отражены в filters.py поле distance и метод filter_distance
    
 
    
