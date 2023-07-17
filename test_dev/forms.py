@@ -21,9 +21,9 @@ class UserRegistrationForm(forms.ModelForm):
         return cd['password2']
 
 class UserRegisterFields(forms.ModelForm):
-    pol = forms.CharField(label='Выберите пол',choices=ImageUsers.choices_pol,widget=forms.Select(attrs={'class': 'form-control'}))
+    pol = forms.ChoiceField(label='Выберите пол',choices=ImageUsers.choices_pol,widget=forms.Select(attrs={'class': 'form-control'}))
 
     class Meta:
         model = ImageUsers
-        fields = ('pol')
+        fields = ('pol',)
 

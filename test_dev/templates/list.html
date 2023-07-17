@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block container %}
+{% if user.is_authenticated %}
+<style>
+td,tr {
+text-align:center;
+}
+tr.pointer {
+cursor: pointer;
+}
+</style>
+<div class="card ">
+    {% csrf_token %}
+    <div class="card-body">
+        <div class="row">
+            <div class="col-2">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Расширенный поиск
+                </button>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form method="get">
+                                    {{myFilter.form}}
+                                    <button class="btn btn-primary" type="submit">Поиск</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <a class="btn btn-secondary" href="{% url 'list_likes' request.user.id %}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                         class="bi bi-bell-fill" viewBox="0 0 16 16">
+                        <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
+                    </svg>
+                    {% if obj > 0 %}
+                    <span class="badge bg-danger up">{{ obj }}</span>
+                    {% endif %}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<table class="table table-bordered  mt-3">
+    <thead class="table-secondary">
+    <tr>
+        <th scope="col">Никнейм</th>
+        <th scope="col">Имя</th>
+        <th scope="col">Фамилия</th>
+        <th scope="col">Пол</th>
+        <th scope="col">Расстояние (км)</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for user, distance in zipped_data %}
+    <tr class="pointer" onclick="document.location = '{% url 'detail_user' user.pk %}';">
+        <td>{{ user.user.username }}</td>
+        <td>{{ user.user.first_name }}</td>
+        <td>{{ user.user.last_name }}</td>
+        <td>{{ user.pol }}</td>
+        <td>{{ distance|floatformat:2 }} км.</td>
+    </tr>
+    {% endfor %}
+
+
+    </tbody>
+</table>
+
+
+{% else %}
+{% include 'test_task.html' %}
+{% endif %}
+
+{% endblock %}

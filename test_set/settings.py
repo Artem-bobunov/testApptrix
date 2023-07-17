@@ -27,8 +27,18 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
 
 # Application definition
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'btema1999@gmail.com'
+EMAIL_HOST_PASSWORD = ''#удалил чтобы всякие вупсени не взломали
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'btema1999@gmail.com'
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -37,7 +47,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'test_dev'
+    'test_dev',
+    'django_filters',
 ]
 
 MIDDLEWARE = [

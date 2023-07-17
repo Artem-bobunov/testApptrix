@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block container %}
+
+{% for i in obj%}
+<div class="card">
+    {% csrf_token %}
+    <div class="row g-0">
+        <div class="col-5 col-sm-4">
+            <img src="C:\Users\btema\PycharmProjects\TestAppTrix\test_set\media\pupsen.jpg" class="img-thumbnail" alt="User Image">
+        </div>
+        <div class="col-7 col-sm-8">
+            <div class="card-body" >
+                <h5 class="card-title">Имя и Фамилия: {{i.id_user_1.first_name}} {{i.id_user_1.last_name}}</h5>
+                <p class="card-text">Почта: {{ i.id_user_1.email }}</p>
+                <p class="card-text"><small class="text-muted">Пол: {{ i.image_us.pol }}</small></p>
+                {% for like in likes%}
+                <p class="card-text">Расстояние: {{ like.distance }} км</p>
+                {% endfor%}
+
+            </div>
+        </div>
+    </div>
+    <form method="post">
+
+<a class="btn btn-info" href="{% url 'likes_is_mutual' i.id_user_1.pk i.nameuser1 %}">Поставить лайк взаимно</a>
+        </form>
+</div>
+
+{% endfor%}
+
+{% endblock %}

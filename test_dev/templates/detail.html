@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block container %}
+<form method="post">
+
+    <div class="card">
+        {% csrf_token %}
+        <div class="row g-0">
+            <div class="col-5 col-sm-4">
+                <img src="data:image/jpg;base64,{{ image }}" class="img-thumbnail" alt="User Image">
+            </div>
+            <div class="col-7 col-sm-8">
+                <div class="card-body">
+                    <h5 class="card-title">Имя и Фамилия: {{ us.user.first_name }} {{ us.user.last_name }}</h5>
+                    <p class="card-text">Почта: {{ us.user.email }}</p>
+                    <p class="card-text"><small class="text-muted">Пол: {{ us.pol }}</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <center><a class="btn btn-warning mt-2" type="submit" href="{% url 'like_for_users' us.pk %}">Поставить лайк</a></center>
+
+</form>
+{% endblock %}
