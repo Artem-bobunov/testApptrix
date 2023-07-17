@@ -1,4 +1,4 @@
-# testApptrix
+![image](https://github.com/Artem-bobunov/testApptrix/assets/38436717/5ba988f0-78cb-4019-a8cc-00a6fd65a7bd)# testApptrix
 1. При запуске сайта попадаем на странчку ниже
   ![image](https://github.com/Artem-bobunov/testApptrix/assets/38436717/dfd39377-1f66-4cfe-bf4e-729f9731066a)
 
@@ -38,7 +38,17 @@
    ![image](https://github.com/Artem-bobunov/testApptrix/assets/38436717/f77e0b4e-dfb0-495c-b82e-81ed62c0f557)
 
    4.1.3. Просматривать лайки если они есть:
+   
    ![image](https://github.com/Artem-bobunov/testApptrix/assets/38436717/0549e912-dd03-4892-8f43-70840e7f77fe)
+
+   
+5. Начинаем ставить лайки
+   К примеру авторизованный пользователь admin4 поставил лайк пользователю admin1, у которого на странице появится (если он авторизован) уведомление. Авторизуюсь под admin1 и как видно сразу появится уведомление
+
+   5.1. Главная страница
+   
+   ![image](https://github.com/Artem-bobunov/testApptrix/assets/38436717/141ea869-92c0-4b96-b5fd-9b77837d4ef1)
+
    
 
    
