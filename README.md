@@ -36,6 +36,12 @@
    
    4.1.2. Искать по атрибутам : пол, имя, фамилия.
    ![image](https://github.com/Artem-bobunov/testApptrix/assets/38436717/f77e0b4e-dfb0-495c-b82e-81ed62c0f557)
+
+   4.1.3. Просматривать лайки если они есть:
+   ![image](https://github.com/Artem-bobunov/testApptrix/assets/38436717/0549e912-dd03-4892-8f43-70840e7f77fe)
+   
+
+   
    
 
    
